@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Angular Material - Starter App</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1" />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="assets/app.css" />
+    <link rel="stylesheet" href="online_chat.css" />
+</head>
+
+<body ng-app="chatApp" layout="column" ng-controller="ChatController" ng-cloak>
+
+    <div flex layout="row">
+        <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+            <md-list>
+                <md-list-item ng-repeat="u in ul.users">
+                    <md-button ng-click="ul.selectUser(u)" ng-class="{'selected' : u === ul.selected }">
+                        <md-icon md-svg-icon="{{u.avatar}}" class="avatar"></md-icon>
+                        {{u.name}}
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+
+        <md-content flex id="">
+            <md-toolbar layout="row">
+                <div class="md-toolbar-tools">
+                  <span>A Random Room</span>
+                  <span flex></span>
+                  <span>
+                    <md-icon md-svg-icon="assets/svg/account_white.svg" class=""></md-icon>
+                    7
+                  </span>
+                </div>
+            </md-toolbar>
+        </md-content>
+
+    </div>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../node_modules/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+    <script src="online_chat_app.js"></script>
+    <script src="online_chat_controller.js"></script>
+</body>
+
+</html>
