@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="online_chat.css" />
 </head>
 
-<body ng-app="chatApp" layout="column" ng-controller="ChatController" ng-cloak>
+<body ng-app="chatApp" layout="column" ng-controller="ChatController as vm" ng-cloak>
 
     <div flex layout="row">
         <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
@@ -27,7 +27,7 @@
             </md-list>
         </md-sidenav>
 
-        <md-content flex id="">
+        <md-content flex id="chat-section">
             <md-toolbar layout="row">
                 <div class="md-toolbar-tools">
                   <span>A Random Room</span>
@@ -38,6 +38,29 @@
                   </span>
                 </div>
             </md-toolbar>
+
+            <div id="chats" flex>
+              <md-list flex>
+                <!-- <md-subheader class="md-no-sticky">Subheader</md-subheader> -->
+                <md-list-item class="md-3-line" ng-repeat="chat in vm.chats" ng-click="null">
+                  <img ng-src="{{ chat.image }}" class="md-avatar" alt="">
+                  <div class="md-list-item-text" layout="column">
+                    <h3>{{ chat.name }}</h3>
+                    <p>{{ chat.comment }}</p>
+                  </div>
+                  <span>{{ chat.time }}</span>
+                  <md-divider ></md-divider>
+                </md-list-item>
+              </md-list>
+            </div>
+
+            <div id="input-chat" flex layout-padding>
+              <md-input-container flex="1">
+                <label>Username</label>
+                <input type="text" ng-model="user.name">
+              </md-input-container>
+            </div>
+
         </md-content>
 
     </div>
