@@ -39,7 +39,7 @@
                 </div>
             </md-toolbar>
 
-            <div id="chats" flex>
+            <md-content id="chat-content" md-scroll-y class="md-padding"  scroll-glue>
               <md-list flex>
                 <!-- <md-subheader class="md-no-sticky">Subheader</md-subheader> -->
                 <md-list-item class="md-3-line" ng-repeat="chat in vm.chats" ng-click="null">
@@ -52,14 +52,14 @@
                   <md-divider ></md-divider>
                 </md-list-item>
               </md-list>
-            </div>
+            </md-content>
 
-            <div id="input-chat" flex layout-padding>
-              <md-input-container flex="1">
-                <label>Username</label>
-                <input type="text" ng-model="user.name">
-              </md-input-container>
-            </div>
+            <md-content layout-padding layout-wrap class="md-padding" layout="column">
+                <md-input-container flex="1">
+                  <label>Type Message...</label>
+                  <input type="text" ng-model="user.name">
+                </md-input-container>
+            </md-content>
 
         </md-content>
 

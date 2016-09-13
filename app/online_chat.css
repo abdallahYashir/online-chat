@@ -5,3 +5,7 @@
 #chats {
     overflow-y: auto;
 }
+
+#chat-content {
+    height: calc(100vh - 220px);
+}
