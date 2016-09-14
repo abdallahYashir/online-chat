@@ -58,3 +58,8 @@ body {
     margin-left: 31px;
     margin-top: 15px;
 }
+
+#chat-content .is-typing {
+    font-style: italic;
+    font-weight: lighter;
+}
