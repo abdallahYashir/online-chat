@@ -28,11 +28,18 @@
     width: 80px;
     height: 80px;
     border-radius: 55px;
-    border: 3px solid #CA6F71;
+    border: 3px solid #F9BDD8;
     padding: 0;
 }
 
 .profile-username {
     color: #FFFFEE;
+    text-shadow: 1px 1px #334477;
     font-family: 'Roboto', sans-serif;
+}
+
+.sidebar-text .online-now {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    color: #BABABA;
 }
