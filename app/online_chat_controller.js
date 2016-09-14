@@ -17,6 +17,14 @@
             { name: 'Austin Brocious', comment: 'Top, angular material stuff', image: 'assets/images/06.jpeg', time: '4:00 PM', color: '#CC4ECC', online: true },
         ];
 
-    }
+        vm.numberUsersOnline = 0;
+
+        vm.chats.forEach(function(value) {
+            if (value.online) {
+                vm.numberUsersOnline++;
+            }
+        });
+
+    } // end function ChatController
 
 })();
