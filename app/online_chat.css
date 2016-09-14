@@ -48,3 +48,13 @@ body {
     font-size: 1.2em;
     color: #BABABA;
 }
+
+#chat-content .is-online {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 30px;
+    background-color: #97D42F;
+    margin-left: 31px;
+    margin-top: 15px;
+}
