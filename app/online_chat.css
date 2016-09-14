@@ -31,3 +31,8 @@
     border: 3px solid #CA6F71;
     padding: 0;
 }
+
+.profile-username {
+    color: #FFFFEE;
+    font-family: 'Roboto', sans-serif;
+}
