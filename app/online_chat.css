@@ -1,0 +1,60 @@
+body {
+    /*font-family: 'Arvo', serif;*/
+    font-family: 'Rubik', sans-serif;
+}
+
+#chat-section{
+    background-color: #EEEEEE;
+}
+
+#chats {
+    overflow-y: auto;
+}
+
+#chat-content {
+    height: calc(100vh - 220px);
+}
+
+.sidebar {
+
+}
+
+.profile-background {
+    background-image: url('assets/images/08.jpg');
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-color: #cccccc;
+    min-height: calc(100vh - 75%);
+    min-width: 100%;
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 55px;
+    border: 3px solid #F9BDD8;
+    padding: 0;
+}
+
+.profile-username {
+    color: #FFFFEE;
+    text-shadow: 1px 1px #334477;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sidebar-text .online-now {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    color: #BABABA;
+}
+
+#chat-content .is-online {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 30px;
+    background-color: #97D42F;
+    margin-left: 31px;
+    margin-top: 15px;
+}
