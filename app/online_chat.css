@@ -9,3 +9,25 @@
 #chat-content {
     height: calc(100vh - 220px);
 }
+
+.sidebar {
+
+}
+
+.profile-background {
+    background-image: url('assets/images/08.jpg');
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-color: #cccccc;
+    min-height: calc(100vh - 75%);
+    min-width: 100%;
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 55px;
+    border: 3px solid #CA6F71;
+    padding: 0;
+}
