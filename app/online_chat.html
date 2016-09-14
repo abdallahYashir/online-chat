@@ -31,7 +31,7 @@
                   <!-- <div class="online-now">Online Now</div> -->
                   <md-list>
                       <md-subheader class="md-no-sticky">Online Now</md-subheader>
-                      <md-list-item class="md-1-line" ng-repeat="chat in vm.chats" ng-click="null">
+                      <md-list-item class="md-1-line" ng-repeat="chat in vm.chats" ng-click="null" ng-if="chat.online">
                           <span>{{ chat.name }}</span>
                       </md-list-item>
                   </md-list>
