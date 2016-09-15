@@ -37,6 +37,9 @@
         // Number of people online
         vm.numberUsersOnline = 0;
 
+        // Welcome Message
+        vm.welcome = 'Welcome';
+
         var chatName = 'Enter User Name...';
         var typeMessage = 'Type Message...';
 
@@ -51,6 +54,9 @@
             vm.username = localStorage.getItem('chat.username');
             vm.hasUserName = true;
             vm.placeholder = typeMessage;
+
+            // Update welcome message
+            vm.welcome = vm.username;
         }
 
         // On submit
@@ -66,6 +72,7 @@
 
                 vm.hasUserName = true;
                 vm.username = vm.message;
+                vm.welcome = vm.username;
 
                 vm.placeholder = typeMessage;
                 localStorage.setItem('chat.username', vm.username);
