@@ -2,9 +2,9 @@
 
     angular
         .module('chatApp')
-        .controller('ChatController', ['$mdBottomSheet', ChatController]);
+        .controller('ChatController', ['$mdBottomSheet', '$scope', ChatController]);
 
-    function ChatController($mdBottomSheet) {
+    function ChatController($mdBottomSheet, $scope) {
 
         var vm = this;
 
@@ -26,13 +26,16 @@
         });
 
         // Declare socket io
-        var socket = io();
+        var socket = io.connect('http://192.168.1.112:3000');
 
         // Chat name
         vm.username = '';
 
         // Typed message
         vm.message = '';
+
+        // Number of people online
+        vm.numberUsersOnline = 0;
 
         var chatName = 'Enter User Name...';
         var typeMessage = 'Type Message...';
@@ -73,6 +76,13 @@
             vm.message = '';
             return false;
         }; // end vm.submit
+
+        // Check who is online
+        socket.emit('who online', { username: vm.username });
+        socket.on('online', function(msg) {
+            vm.numberUsersOnline = msg.clientsOnline;
+            $scope.$apply('vm.numberUsersOnline');
+        });
 
         // When received message
         socket.on('chat message', function(msg) {
