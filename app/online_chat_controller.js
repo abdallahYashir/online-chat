@@ -40,6 +40,9 @@
         // Welcome Message
         vm.welcome = 'Welcome';
 
+        // List of online clients
+        vm.listOnlineClients = [];
+
         var chatName = 'Enter User Name...';
         var typeMessage = 'Type Message...';
 
@@ -57,6 +60,10 @@
 
             // Update welcome message
             vm.welcome = vm.username;
+
+            // Emit connected to server
+            socket.emit('connected', vm.username);
+
         }
 
         // On submit
@@ -93,11 +100,14 @@
 
         // Check who is online
         socket.emit('who online', { username: vm.username });
+
         socket.on('online', function(msg) {
 
             // Get number of clients connected and update view
             vm.numberUsersOnline = msg.clientsOnline;
+            vm.listOnlineClients = msg.clients;
             $scope.$apply('vm.numberUsersOnline');
+            $scope.$apply('vm.listOnlineClients');
         });
 
         // When received message
