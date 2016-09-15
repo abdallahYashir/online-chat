@@ -56,6 +56,11 @@
         // On submit
         vm.submit = function() {
 
+            // if nothing is inputted, return
+            if (_.isEmpty(vm.message)) {
+                return;
+            }
+
             // if first time, enter chatName
             if (!vm.hasUserName) {
 
@@ -65,13 +70,15 @@
                 vm.placeholder = typeMessage;
                 localStorage.setItem('chat.username', vm.username);
 
+                // Once client has username, officially connected to socket server
                 socket.emit('connected', vm.username);
+
             } else if (vm.hasUserName) {
                 socket.emit('chat message', {
                     username: vm.username,
                     message: vm.message
                 });
-            }
+            } // end if
 
             vm.message = '';
             return false;
@@ -80,6 +87,8 @@
         // Check who is online
         socket.emit('who online', { username: vm.username });
         socket.on('online', function(msg) {
+
+            // Get number of clients connected and update view
             vm.numberUsersOnline = msg.clientsOnline;
             $scope.$apply('vm.numberUsersOnline');
         });
