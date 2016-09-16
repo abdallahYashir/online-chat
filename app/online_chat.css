@@ -3,7 +3,7 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
-#chat-section{
+#chat-section {
     background-color: #EEEEEE;
 }
 
@@ -15,14 +15,12 @@ body {
     height: calc(100vh - 220px);
 }
 
-.sidebar {
-
-}
+.sidebar {}
 
 .profile-background {
     background-image: url('assets/images/08.jpg');
     background-repeat: no-repeat;
-    background-position: center center; 
+    background-position: center center;
     background-color: #cccccc;
     min-height: calc(100vh - 75%);
     min-width: 100%;
@@ -59,7 +57,9 @@ body {
     margin-top: 15px;
 }
 
+
 /*Remove unused is-typing class*/
+
 #chat-content #typing-wrapper .is-typing {
     font-style: italic;
     font-weight: lighter;
@@ -78,13 +78,43 @@ body {
 }
 
 #chat-content #typing-wrapper .is-typing .first {
-    background-color: #C3C5C7;
+    -webkit-animation: color_change_start 1s infinite reverse;
+    -moz-animation: color_change_start 1s infinite reverse;
+    -ms-animation: color_change_start 1s infinite reverse;
+    -o-animation: color_change_start 1s infinite reverse;
+    animation: color_change_start 1s infinite reverse;
 }
 
 #chat-content #typing-wrapper .is-typing .second {
-    background-color: #5E5F5F;
+    -webkit-animation: color_change_middle 1s infinite reverse;
+    -moz-animation: color_change_middle 1s infinite reverse;
+    -ms-animation: color_change_middle 1s infinite reverse;
+    -o-animation: color_change_middle 1s infinite reverse;
+    animation: color_change_middle 1s infinite reverse;
 }
 
 #chat-content #typing-wrapper .is-typing .third {
-    background-color: #4E4E4F;
+    -webkit-animation: color_change_end 1s infinite reverse;
+    -moz-animation: color_change_end 1s infinite reverse;
+    -ms-animation: color_change_end 1s infinite reverse;
+    -o-animation: color_change_end 1s infinite reverse;
+    animation: color_change_end 1s infinite reverse;
+}
+
+@keyframes color_change_start {
+    0% { background-color: #C3C5C7 }
+    50% { background-color: #5E5F5F }
+    100% { background-color: #4E4E4F }
+}
+
+@keyframes color_change_middle {
+    0% { background-color: #5E5F5F }
+    50% { background-color: #4E4E4F }
+    100% { background-color: #C3C5C7 }
+}
+
+@keyframes color_change_end{
+    0% { background-color: #4E4E4F }
+    50% { background-color: #C3C5C7 }
+    100% { background-color: #5E5F5F }
 }
