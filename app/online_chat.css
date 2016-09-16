@@ -67,6 +67,7 @@ body {
     height: 25px;
     background-color: #E1E2E3;
     border-radius: 4px;
+    margin-top: 5px;
 }
 
 #chat-content #typing-wrapper .is-typing div {
