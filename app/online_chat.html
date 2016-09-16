@@ -71,12 +71,24 @@
                 </md-list>
                 <md-divider></md-divider>
 
-                <div class="is-typing" flex layout="column" layout-padding layout-wrap>
-                  <div>Austin Brocious is typing...</div>
-                  <div>Wawa is typing...</div>
-                </div>
+                <md-content id="typing-wrapper" md-scroll-y scroll-glue>
+                    <md-list flex>
+                      <md-list-item class="md-3-line" ng-repeat="client in vm.listOnlineClients" ng-click="null">
+                          <img ng-src="assets/images/05.jpg" class="md-avatar" alt="" style="border: 3px solid #3E6677; padding: 0;">
+                        <div class="is-online"></div>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ client.name }}</h3>
+                            <div class="is-typing">
+                                is typing...
+                            </div>
+                        </div>
+
+                      </md-list-item>
+                    </md-list>
+                </md-content>
 
             </md-content>
+
             <md-content flex layout-padding layout-wrap class="md-padding" layout="row">
                 <md-input-container flex>
                     <label>{{ vm.placeholder }}</label>
