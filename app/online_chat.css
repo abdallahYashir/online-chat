@@ -63,4 +63,28 @@ body {
 #chat-content #typing-wrapper .is-typing {
     font-style: italic;
     font-weight: lighter;
+    width: 50px;
+    height: 25px;
+    background-color: #E1E2E3;
+    border-radius: 4px;
+}
+
+#chat-content #typing-wrapper .is-typing div {
+    background-color: black;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin-right: 2px;
+}
+
+#chat-content #typing-wrapper .is-typing .first {
+    background-color: #C3C5C7;
+}
+
+#chat-content #typing-wrapper .is-typing .second {
+    background-color: #5E5F5F;
+}
+
+#chat-content #typing-wrapper .is-typing .third {
+    background-color: #4E4E4F;
 }
