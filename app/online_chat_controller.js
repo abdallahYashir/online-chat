@@ -26,7 +26,7 @@
         });
 
         // Declare socket io
-        var socket = io.connect('http://192.168.1.112:3000');
+        var socket = io.connect('http://192.168.1.117:3000');
 
         // Chat name
         vm.username = '';
@@ -104,10 +104,8 @@
         socket.on('online', function(msg) {
 
             // Get number of clients connected and update view
-            vm.numberUsersOnline = msg.clientsOnline;
             vm.listOnlineClients = msg.clients;
-            $scope.$apply('vm.numberUsersOnline');
-            $scope.$apply('vm.listOnlineClients');
+            $scope.$apply();
         });
 
         // When received message
