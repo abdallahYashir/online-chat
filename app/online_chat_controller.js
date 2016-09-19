@@ -52,6 +52,8 @@
         vm.hasUserName = false;
         vm.placeholder = chatName;
 
+        vm.clientsTyping = [];
+
         // Store username in local storage
         if (localStorage.getItem('chat.username')) {
             vm.username = localStorage.getItem('chat.username');
@@ -154,7 +156,7 @@
             // if typing false
             if (!typing) {
                 typing = true;
-                socket.emit('typing', { username: vm.username });
+                socket.emit('typing', { socketId: socket.id, username: vm.username });
                 timeout = setTimeout(timeoutFunction, 5000);
             } else {
                 clearTimeout(timeout);
@@ -164,10 +166,14 @@
 
         // On user typing
         socket.on('is typing', function(msg) {
-            
+
             // If message is not empty
             if (!_.isEmpty(msg)) {
-
+                // Check if msg with socket and username not already exist
+                // vm.clientsTyping = msg;
+                addValueToArray(vm.clientsTyping, msg);
+                $scope.$apply('vm.clientsTyping');
+                console.log('vm.clientsTyping:', JSON.stringify(vm.clientsTyping));
             }
 
         });
@@ -178,6 +184,25 @@
                 // $('.' + msg).remove();
             } catch (exception) {}
         });
+
+        // Check if object is already present before adding
+        function addValueToArray(clients, client) {
+
+            var contains = false;
+
+            // Check if value already exists
+            _.forEach(clients, function(c) {
+                if (c === client) {
+                    contains = true;
+                }
+            });
+
+            // Add value if clients list is empty
+            if (clients.length === 0 || contains) {
+                clients.push(client);
+            }
+
+        } // end addValueToArray
 
     } // end function ChatController
 
