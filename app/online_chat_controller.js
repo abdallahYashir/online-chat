@@ -26,7 +26,7 @@
         });
 
         // Declare socket io
-        var socket = io.connect('http://192.168.1.117:3000');
+        var socket = io.connect('http://192.168.1.108:3000');
 
         // Chat name
         vm.username = '';
@@ -164,8 +164,10 @@
 
         // On user typing
         socket.on('is typing', function(msg) {
-            if (msg !== '' && msg !== vm.username) {
-                // $('#whoIsTyping').append($('<li class="' + msg + '">').text(msg + ' is typing...'));
+            
+            // If message is not empty
+            if (!_.isEmpty(msg)) {
+
             }
 
         });
