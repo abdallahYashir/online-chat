@@ -65,16 +65,16 @@
         vm.listOfMessages = [];
 
         // Store username in local storage
-        if (localStorage.getItem('chat.client')) {
-
-            // Update client connected
-            vm.connectedClient = JSON.parse(localStorage.getItem('chat.client'));
-            vm.username = vm.connectedClient.username;
+        if (localStorage.getItem('chat.username')) {
+            vm.username = localStorage.getItem('chat.username');
             vm.hasUserName = true;
             vm.placeholder = typeMessage;
 
             // Update welcome message
             vm.welcome = vm.username;
+
+            // Update client connected
+            // assignPersonality(listOfImages, listOfColors, vm.connectedClient, socket.id, vm.username, true);
 
             // Emit connected to server
             socket.emit('connected', vm.username);
@@ -99,8 +99,7 @@
                 vm.placeholder = typeMessage;
                 // Update client connected
                 assignPersonality(listOfImages, listOfColors, vm.connectedClient, socket.id, vm.username, true);
-
-                localStorage.setItem('chat.client', JSON.stringify(vm.connectedClient));
+                localStorage.setItem('chat.username', vm.username);
 
                 // Once client has username, officially connected to socket server
                 socket.emit('connected', vm.username);
