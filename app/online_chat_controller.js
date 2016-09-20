@@ -26,7 +26,7 @@
         });
 
         // Declare socket io
-        var socket = io.connect('http://192.168.1.108:3000');
+        var socket = io.connect('http://192.168.1.113:3000');
 
         // Chat name
         vm.username = '';
@@ -141,7 +141,7 @@
         // show typing no longer 
         function timeoutFunction() {
             typing = false;
-            socket.emit('typingStop', { username: vm.username });
+            socket.emit('typingStop', { socketId: socket.id, username: vm.username });
         }
 
         // Emits typing whenever user types a key
@@ -171,7 +171,7 @@
             if (!_.isEmpty(msg)) {
                 // Check if msg with socket and username not already exist
                 // vm.clientsTyping = msg;
-                addValueToArray(vm.clientsTyping, msg);
+                addClientTyping(vm.clientsTyping, msg);
                 $scope.$apply('vm.clientsTyping');
                 console.log('vm.clientsTyping:', JSON.stringify(vm.clientsTyping));
             }
@@ -181,12 +181,13 @@
         // On user stop typing
         socket.on('stop typing', function(msg) {
             try {
-                // $('.' + msg).remove();
+                removeClientTyping(vm.clientsTyping, msg);
+                $scope.$apply('vm.clientsTyping');
             } catch (exception) {}
         });
 
         // Check if object is already present before adding
-        function addValueToArray(clients, client) {
+        function addClientTyping(clients, client) {
 
             var contains = false;
 
@@ -202,7 +203,12 @@
                 clients.push(client);
             }
 
-        } // end addValueToArray
+        } // end addClientTyping
+
+        // Remove client from clients typing list
+        function removeClientTyping(clients, client) {
+            return _.remove(clients, client);
+        } // end removeClient
 
     } // end function ChatController
 
