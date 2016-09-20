@@ -17,6 +17,11 @@
             { name: 'Austin Brocious', comment: 'Top, angular material stuff', image: 'assets/images/06.jpeg', time: '4:00 PM', color: '#CC4ECC', online: true },
         ];
 
+        // Use of random images and colors
+        var listOfImages = ['assets/images/01.jpeg', 'assets/images/02.jpeg', 'assets/images/03.jpg', 'assets/images/04.jpg', 'assets/images/05.jpg', 'assets/images/06.jpeg', 'assets/images/07.jpg', 'assets/images/08.jpg', 'assets/images/09.jpg', 'assets/images/10.jpg', 'assets/images/11.jpg', 'assets/images/12.jpeg', 'assets/images/13.jpeg', 'assets/images/14.jpeg'];
+        var listOfColors = ['#6688AA', '#3E6677', '#879996', '#FFDDBB', '#5D9647', '#CC4ECC', '#c2cbc6', '#6084be', '#145fbc', '#cfd2a4', '#bba8bc'];
+
+        // TODO: remove variable and forEach below
         vm.numberUsersOnline = 0;
 
         vm.chats.forEach(function(value) {
@@ -54,9 +59,17 @@
 
         vm.clientsTyping = [];
 
+        // Connected local Client Object - socketId, username, image, icon
+        vm.connectedClient = {};
+        // List of Messages history
+        vm.listOfMessages = [];
+
         // Store username in local storage
-        if (localStorage.getItem('chat.username')) {
-            vm.username = localStorage.getItem('chat.username');
+        if (localStorage.getItem('chat.client')) {
+
+            // Update client connected
+            vm.connectedClient = JSON.parse(localStorage.getItem('chat.client'));
+            vm.username = vm.connectedClient.username;
             vm.hasUserName = true;
             vm.placeholder = typeMessage;
 
@@ -84,7 +97,10 @@
                 vm.welcome = vm.username;
 
                 vm.placeholder = typeMessage;
-                localStorage.setItem('chat.username', vm.username);
+                // Update client connected
+                assignPersonality(listOfImages, listOfColors, vm.connectedClient, socket.id, vm.username, true);
+
+                localStorage.setItem('chat.client', JSON.stringify(vm.connectedClient));
 
                 // Once client has username, officially connected to socket server
                 socket.emit('connected', vm.username);
@@ -209,6 +225,23 @@
         function removeClientTyping(clients, client) {
             return _.remove(clients, client);
         } // end removeClient
+
+        // Assign (random) image and color
+        function assignPersonality(listOfImages, listOfColors, client, socketId, username, online) {
+
+            var image = _.random(0, listOfImages.length - 1);
+            var color = _.random(0, listOfColors.length - 1);
+
+            client = {
+                socketId: socketId,
+                username: username,
+                image: listOfImages[image],
+                color: listOfColors[color],
+                online: online
+            };
+
+            return client;
+        } // end assignPersonality
 
     } // end function ChatController
 
