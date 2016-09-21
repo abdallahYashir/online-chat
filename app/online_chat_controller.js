@@ -175,6 +175,12 @@
                 return;
             }
 
+            // if vm.message only 1 and escape is pressed, send stop typing
+            if (vm.message.length <= 1 && keyEvent.keyCode === 8) {
+                timeoutFunction();
+                return;
+            }
+
             // if Enter key is pressed, launch timeout directly
             if (keyEvent.keyCode === 13) {
                 timeoutFunction();
