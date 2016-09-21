@@ -8,15 +8,7 @@
 
         var vm = this;
 
-            // TODO: replace vm.chats with listOfMessages
-        vm.chats = [
-            { username: 'Darrel Royston', message: 'Hey guys sup?', image: 'assets/images/01.jpeg', time: '1:22 PM', color: '#6688AA', online: true },
-            { username: 'Dominica Oelke', message: 'looks good', image: 'assets/images/02.jpeg', time: '2:17 PM', color: '#3E6677', online: false },
-            { username: 'Sabra Vassell', message: 'Nice looking', image: 'assets/images/03.jpg', time: '2:34 PM', color: '#879996', online: false },
-            { username: 'Vincenzo Messina', message: 'neat!', image: 'assets/images/04.jpg', time: '2:35 PM', color: '#FFDDBB', online: true },
-            { username: 'Lilly Sallis', message: 'cool!', image: 'assets/images/05.jpg', time: '3:12 PM', color: '#5D9647', online: false },
-            { username: 'Austin Brocious', message: 'Top, angular material stuff', image: 'assets/images/06.jpeg', time: '4:00 PM', color: '#CC4ECC', online: true },
-        ];
+        vm.chats = [];
 
         // Use of random images and colors
         var listOfImages = ['assets/images/01.jpeg', 'assets/images/02.jpeg', 'assets/images/03.jpg', 'assets/images/04.jpg', 'assets/images/05.jpg', 'assets/images/06.jpeg', 'assets/images/07.jpg', 'assets/images/08.jpg', 'assets/images/09.jpg', 'assets/images/10.jpg', 'assets/images/11.jpg', 'assets/images/12.jpeg', 'assets/images/13.jpeg', 'assets/images/14.jpeg'];
@@ -273,6 +265,14 @@
 
             return client;
         } // end assignPersonality
+
+        // Get the list of messages when the user is connected to the server
+        // Get list of messages and update
+        socket.on('messages', function (msg) {
+            if (vm.hasUserName) {
+                vm.chats = JSON.parse(msg);
+            }
+        });
 
     } // end function ChatController
 
