@@ -8,6 +8,7 @@
 
         var vm = this;
 
+            // TODO: replace vm.chats with listOfMessages
         vm.chats = [
             { username: 'Darrel Royston', message: 'Hey guys sup?', image: 'assets/images/01.jpeg', time: '1:22 PM', color: '#6688AA', online: true },
             { username: 'Dominica Oelke', message: 'looks good', image: 'assets/images/02.jpeg', time: '2:17 PM', color: '#3E6677', online: false },
@@ -113,14 +114,21 @@
                 socket.emit('connected', vm.username);
 
             } else if (vm.hasUserName) {
-                socket.emit('chat message', {
+
+                var chat_message = {
                     username: vm.username,
                     message: vm.message,
                     time: _.now(),
                     image: vm.connectedClient.image,
                     color: vm.connectedClient.color,
                     online: true
-                });
+                };
+
+                // Emit to server
+                socket.emit('chat message', chat_message);
+                // Append to list of messages
+                vm.chats.push(chat_message);
+
             } // end if
 
             vm.message = '';
@@ -139,9 +147,6 @@
 
         // When received message
         socket.on('chat message', function(msg) {
-            // console.log('received emit');
-            // $('#messages').append($('<li>').text(msg));
-            console.log('chat message - msg: ', msg);
             vm.chats.push(msg);
             $scope.$apply('vm.chats');
         });

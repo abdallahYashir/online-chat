@@ -31,7 +31,7 @@
                   <!-- <div class="online-now">Online Now</div> -->
                   <md-list>
                       <md-subheader class="md-no-sticky">Online Now</md-subheader>
-                      <md-list-item class="md-1-line" ng-repeat="client in vm.listOnlineClients" ng-click="null">
+                      <md-list-item class="md-1-line" ng-repeat="client in vm.listOnlineClients track by $index" ng-click="null">
                           <span>{{ client.name }}</span>
                       </md-list-item>
                   </md-list>
@@ -58,7 +58,7 @@
             <md-content id="chat-content" md-scroll-y class="md-padding" scroll-glue>
                 <md-list flex>
                     <!-- <md-subheader class="md-no-sticky">Subheader</md-subheader> -->
-                    <md-list-item class="md-3-line" ng-repeat="chat in vm.chats" ng-click="null">
+                    <md-list-item class="md-3-line" ng-repeat="chat in vm.chats track by $index" ng-click="null">
                         <img ng-src="{{ chat.image }}" class="md-avatar" alt="" style="border: 3px solid {{ chat.color  }}; padding: 0;">
                         <div class="is-online" ng-if="chat.online"></div>
                         <div class="md-list-item-text" layout="column">
