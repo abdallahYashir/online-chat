@@ -31,7 +31,7 @@
         });
 
         // Declare socket io
-        var socket = io.connect('http://192.168.1.113:3000');
+        var socket = io.connect('http://192.168.1.111:3000');
 
         // Chat name
         vm.username = '';
@@ -169,6 +169,12 @@
 
         // Emits typing whenever user types a key
         vm.onKeyDownNotEnter = function(keyEvent) {
+
+            // if not yet login, do not show typing
+            if (!vm.hasUserName) {
+                return;
+            }
+
             // if Enter key is pressed, launch timeout directly
             if (keyEvent.keyCode === 13) {
                 timeoutFunction();
