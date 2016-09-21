@@ -62,10 +62,10 @@
                         <img ng-src="{{ chat.image }}" class="md-avatar" alt="" style="border: 3px solid {{ chat.color  }}; padding: 0;">
                         <div class="is-online" ng-if="chat.online"></div>
                         <div class="md-list-item-text" layout="column">
-                            <h3>{{ chat.name }}</h3>
-                            <p>{{ chat.comment }}</p>
+                            <h3>{{ chat.username }}</h3>
+                            <p>{{ chat.message }}</p>
                         </div>
-                        <span layout="column">{{ chat.time }}</span>
+                        <span layout="column">{{ chat.time | date:'shortTime' }}</span>
                         <md-divider></md-divider>
                     </md-list-item>
                 </md-list>
