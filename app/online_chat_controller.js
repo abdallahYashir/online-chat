@@ -66,7 +66,12 @@
 
         // Store username in local storage
         if (localStorage.getItem('chat.username')) {
+
             vm.username = localStorage.getItem('chat.username');
+            vm.connectedClient.socketId = socket.id;
+            vm.connectedClient.image = localStorage.getItem('chat.image');
+            vm.connectedClient.color = localStorage.getItem('chat.color');
+
             vm.hasUserName = true;
             vm.placeholder = typeMessage;
 
@@ -98,8 +103,11 @@
 
                 vm.placeholder = typeMessage;
                 // Update client connected
-                assignPersonality(listOfImages, listOfColors, vm.connectedClient, socket.id, vm.username, true);
+                vm.connectedClient = assignPersonality(listOfImages, listOfColors, socket.id, vm.username, true);
+
                 localStorage.setItem('chat.username', vm.username);
+                localStorage.setItem('chat.image', vm.connectedClient.image);
+                localStorage.setItem('chat.color', vm.connectedClient.color);
 
                 // Once client has username, officially connected to socket server
                 socket.emit('connected', vm.username);
@@ -226,12 +234,12 @@
         } // end removeClient
 
         // Assign (random) image and color
-        function assignPersonality(listOfImages, listOfColors, client, socketId, username, online) {
+        function assignPersonality(listOfImages, listOfColors, socketId, username, online) {
 
             var image = _.random(0, listOfImages.length - 1);
             var color = _.random(0, listOfColors.length - 1);
 
-            client = {
+            var client = {
                 socketId: socketId,
                 username: username,
                 image: listOfImages[image],
