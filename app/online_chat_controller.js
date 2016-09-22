@@ -289,29 +289,23 @@
              * If present, put online as true
              * Else false
              */
-            console.log('listOfClientsOnline.length: ', listOfClientsOnline.length);
-            var messages = listOfMessages;
 
-            // TODO : try using for loop
-            _.forEach(listOfMessages, function (message) {
-                _.forEach(listOfClientsOnline, function (client) {
-                    if (message.username === client.name) {
-                        message.online = true;
-                        console.log('message: ', JSON.stringify(message));
-                        $scope.$apply('vm.chats');
+            // Loop listOfMessages
+            for (var i = 0; i < listOfMessages.length; i++) {
+                // Loop listOfClientsOnline
+                for (var j = 0; j < listOfClientsOnline.length; j++) {
+                    // Check if client is current one OR check in list of online
+                    if (listOfMessages[i].username === vm.username || listOfMessages[i].username === listOfClientsOnline[i].name) {
+                        listOfMessages[i].online = true;
                     }
-                    else {
-                        message.online = false;
+                    else{
+                        listOfMessages[i].online = false;
                     }
-                });
-            });
-            
-            console.log('messages: ', JSON.stringify(messages));
-            
-            return messages;
-            //$scope.$apply();
-            // Check performance with console.time()
-        }
+                } // end for j
+            } // end for i
+
+            return listOfMessages;
+        } // end updateClientsMessagesOnline
 
     } // end function ChatController
 
