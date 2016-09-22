@@ -134,6 +134,7 @@
 
             // Get number of clients connected and update view
             vm.listOnlineClients = msg.clients;
+            updateClientsMessagesOnline(msg.clients, vm.chats);
             $scope.$apply();
         });
 
@@ -273,7 +274,6 @@
             if (vm.hasUserName) {
                 vm.chats = JSON.parse(msg);
                 vm.chats = updateClientsMessagesOnline(vm.listOnlineClients, vm.chats);
-                console.log('vm.chats: ', JSON.stringify(vm.chats));
                 $scope.$apply();
             }
         });
@@ -295,7 +295,7 @@
                 // Loop listOfClientsOnline
                 for (var j = 0; j < listOfClientsOnline.length; j++) {
                     // Check if client is current one OR check in list of online
-                    if (listOfMessages[i].username === vm.username || listOfMessages[i].username === listOfClientsOnline[i].name) {
+                    if (listOfMessages[i].username === vm.username || listOfMessages[i].username === listOfClientsOnline[j].name) {
                         listOfMessages[i].online = true;
                     }
                     else{
