@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
     angular
         .module('chatApp')
@@ -17,14 +17,14 @@
         // TODO: remove variable and forEach below
         vm.numberUsersOnline = 0;
 
-        vm.chats.forEach(function(value) {
+        vm.chats.forEach(function (value) {
             if (value.online) {
                 vm.numberUsersOnline++;
             }
         });
 
         // Declare socket io
-        var socket = io.connect('http://192.168.1.111:3000');
+        var socket = io.connect('http://192.168.1.110:3000');
 
         // Chat name
         vm.username = '';
@@ -80,7 +80,7 @@
         }
 
         // On submit
-        vm.submit = function() {
+        vm.submit = function () {
 
             // if nothing is inputted, return
             if (_.isEmpty(vm.message)) {
@@ -128,9 +128,9 @@
         }; // end vm.submit
 
         // Check who is online
-        socket.emit('who online', { username: vm.username });
+        socket.emit('who online', {username: vm.username});
 
-        socket.on('online', function(msg) {
+        socket.on('online', function (msg) {
 
             // Get number of clients connected and update view
             vm.listOnlineClients = msg.clients;
@@ -138,18 +138,18 @@
         });
 
         // When received message
-        socket.on('chat message', function(msg) {
+        socket.on('chat message', function (msg) {
             vm.chats.push(msg);
             $scope.$apply('vm.chats');
         });
 
         // Detect when tab/window is going to close
-        window.onbeforeunload = function() {
-            socket.emit('disconnect', { username: vm.username });
+        window.onbeforeunload = function () {
+            socket.emit('disconnect', {username: vm.username});
         };
 
         // Received all previous messages in the group chat
-        socket.on('messages', function(msg) {
+        socket.on('messages', function (msg) {
             // if message is not empty and user has entered user name
             if (msg !== null && msg !== '') {
 
@@ -157,7 +157,7 @@
                 msg = JSON.parse(msg);
 
                 if (msg.length > 0) {
-                    msg.forEach(function(message) {
+                    msg.forEach(function (message) {
                         // $('#messages').append($('<li>').text(message));
                     });
                 }
@@ -168,11 +168,11 @@
         // show typing no longer 
         function timeoutFunction() {
             typing = false;
-            socket.emit('typingStop', { socketId: socket.id, username: vm.username });
+            socket.emit('typingStop', {socketId: socket.id, username: vm.username});
         }
 
         // Emits typing whenever user types a key
-        vm.onKeyDownNotEnter = function(keyEvent) {
+        vm.onKeyDownNotEnter = function (keyEvent) {
 
             // if not yet login, do not show typing
             if (!vm.hasUserName) {
@@ -195,7 +195,7 @@
             // if typing false
             if (!typing) {
                 typing = true;
-                socket.emit('typing', { socketId: socket.id, username: vm.username });
+                socket.emit('typing', {socketId: socket.id, username: vm.username});
                 timeout = setTimeout(timeoutFunction, 5000);
             } else {
                 clearTimeout(timeout);
@@ -204,7 +204,7 @@
         };
 
         // On user typing
-        socket.on('is typing', function(msg) {
+        socket.on('is typing', function (msg) {
 
             // If message is not empty
             if (!_.isEmpty(msg)) {
@@ -218,11 +218,12 @@
         });
 
         // On user stop typing
-        socket.on('stop typing', function(msg) {
+        socket.on('stop typing', function (msg) {
             try {
                 removeClientTyping(vm.clientsTyping, msg);
                 $scope.$apply('vm.clientsTyping');
-            } catch (exception) {}
+            } catch (exception) {
+            }
         });
 
         // Check if object is already present before adding
@@ -231,7 +232,7 @@
             var contains = false;
 
             // Check if value already exists
-            _.forEach(clients, function(c) {
+            _.forEach(clients, function (c) {
                 if (c === client) {
                     contains = true;
                 }
@@ -271,8 +272,46 @@
         socket.on('messages', function (msg) {
             if (vm.hasUserName) {
                 vm.chats = JSON.parse(msg);
+                vm.chats = updateClientsMessagesOnline(vm.listOnlineClients, vm.chats);
+                console.log('vm.chats: ', JSON.stringify(vm.chats));
+                $scope.$apply();
             }
         });
+
+        // TODO : Update list of messages online/offline client
+        // TODO : Update profile picture to the one randomly assigned for user - use vm.connectedClient
+
+        // Update online status of clients in list of messages
+        function updateClientsMessagesOnline(listOfClientsOnline, listOfMessages) {
+            /**
+             * Loop through each messages
+             * Loop inside of list of clients online
+             * If present, put online as true
+             * Else false
+             */
+            console.log('listOfClientsOnline.length: ', listOfClientsOnline.length);
+            var messages = listOfMessages;
+
+            // TODO : try using for loop
+            _.forEach(listOfMessages, function (message) {
+                _.forEach(listOfClientsOnline, function (client) {
+                    if (message.username === client.name) {
+                        message.online = true;
+                        console.log('message: ', JSON.stringify(message));
+                        $scope.$apply('vm.chats');
+                    }
+                    else {
+                        message.online = false;
+                    }
+                });
+            });
+            
+            console.log('messages: ', JSON.stringify(messages));
+            
+            return messages;
+            //$scope.$apply();
+            // Check performance with console.time()
+        }
 
     } // end function ChatController
 
