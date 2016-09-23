@@ -151,23 +151,7 @@
         window.onbeforeunload = function () {
             socket.emit('disconnect', {username: vm.username});
         };
-
-        // Received all previous messages in the group chat
-        socket.on('messages', function (msg) {
-            // if message is not empty and user has entered user name
-            if (msg !== null && msg !== '') {
-
-                // Parse string to array
-                msg = JSON.parse(msg);
-
-                if (msg.length > 0) {
-                    msg.forEach(function (message) {
-                        // $('#messages').append($('<li>').text(message));
-                    });
-                }
-            }
-        }); // end socket.on messages
-
+        
         // Detect user typing on and shows
         // show typing no longer 
         function timeoutFunction() {
@@ -284,7 +268,7 @@
 
         // TODO : Update list of messages online/offline client
         // TODO : Update profile picture to the one randomly assigned for user - use vm.connectedClient
-        // TODO : debug online inconsistency with messages and clients - use Id to check rather than username - UPDATE issue seems to be with if and else part of function
+        // TODO : check performance of function below
 
         // Update online status of clients in list of messages
         function updateClientsMessagesOnline(listOfClientsOnline, listOfMessages) {
