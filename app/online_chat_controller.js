@@ -304,6 +304,22 @@
             return 'id' + new Date().valueOf();
         } // end randomId
 
+        // Assign random image if not connected
+        vm.assignImage = function (image) {
+            if (!vm.hasUserName) {
+                return listOfImages[0];
+            }
+            return image;
+        }; // end assignImage
+
+        // Assign color if not connected else get randomly selected one
+        vm.assignColor = function (color) {
+            if (!vm.hasUserName) {
+                return listOfColors[0];
+            }
+            return color;
+        }; // end assignColor
+
     } // end function ChatController
 
 })();

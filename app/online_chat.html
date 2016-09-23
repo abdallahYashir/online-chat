@@ -21,7 +21,7 @@
                 <div class="profile-background md-whiteframe-2dp">
                     <div id="profile-content" flex layout="column" layout-padding layout-wrap layout-align="end">
                         <span flex></span>
-                        <img ng-src="assets/images/04.jpg" class="profile-image md-whiteframe-1dp" alt="Profile Background">
+                        <img ng-src="{{ vm.assignImage(vm.connectedClient.image) }}" class="profile-image md-whiteframe-1dp" alt="Profile Background" style="border: 3px solid {{ vm.assignColor(vm.connectedClient.color) }}">
                         <span flex></span>
                         <h3 class="profile-username">{{ vm.welcome }}</h3>
                     </div>
