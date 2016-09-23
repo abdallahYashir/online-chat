@@ -61,6 +61,7 @@
         if (localStorage.getItem('chat.username')) {
 
             vm.username = localStorage.getItem('chat.username');
+            vm.connectedClient.id = localStorage.getItem('chat.id');
             vm.connectedClient.socketId = socket.id;
             vm.connectedClient.image = localStorage.getItem('chat.image');
             vm.connectedClient.color = localStorage.getItem('chat.color');
@@ -75,7 +76,7 @@
             // assignPersonality(listOfImages, listOfColors, vm.connectedClient, socket.id, vm.username, true);
 
             // Emit connected to server
-            socket.emit('connected', vm.username);
+            socket.emit('connected', {id: vm.connectedClient.id, username: vm.username});
 
         }
 
@@ -98,16 +99,18 @@
                 // Update client connected
                 vm.connectedClient = assignPersonality(listOfImages, listOfColors, socket.id, vm.username, true);
 
+                localStorage.setItem('chat.id', vm.connectedClient.id);
                 localStorage.setItem('chat.username', vm.username);
                 localStorage.setItem('chat.image', vm.connectedClient.image);
                 localStorage.setItem('chat.color', vm.connectedClient.color);
 
                 // Once client has username, officially connected to socket server
-                socket.emit('connected', vm.username);
+                socket.emit('connected', {id: vm.connectedClient.id, username: vm.username});
 
             } else if (vm.hasUserName) {
 
                 var chat_message = {
+                    id: vm.connectedClient.id,
                     username: vm.username,
                     message: vm.message,
                     time: _.now(),
@@ -213,7 +216,6 @@
                 // vm.clientsTyping = msg;
                 addClientTyping(vm.clientsTyping, msg);
                 $scope.$apply('vm.clientsTyping');
-                console.log('vm.clientsTyping:', JSON.stringify(vm.clientsTyping));
             }
 
         });
@@ -254,10 +256,12 @@
         // Assign (random) image and color
         function assignPersonality(listOfImages, listOfColors, socketId, username, online) {
 
+            var id = randomId();
             var image = _.random(0, listOfImages.length - 1);
             var color = _.random(0, listOfColors.length - 1);
 
             var client = {
+                id: id,
                 socketId: socketId,
                 username: username,
                 image: listOfImages[image],
@@ -280,6 +284,7 @@
 
         // TODO : Update list of messages online/offline client
         // TODO : Update profile picture to the one randomly assigned for user - use vm.connectedClient
+        // TODO : debug online inconsistency with messages and clients - use Id to check rather than username - UPDATE issue seems to be with if and else part of function
 
         // Update online status of clients in list of messages
         function updateClientsMessagesOnline(listOfClientsOnline, listOfMessages) {
@@ -291,21 +296,29 @@
              */
 
             // Loop listOfMessages
+            loop1:
             for (var i = 0; i < listOfMessages.length; i++) {
                 // Loop listOfClientsOnline
+                loop2:
                 for (var j = 0; j < listOfClientsOnline.length; j++) {
                     // Check if client is current one OR check in list of online
-                    if (listOfMessages[i].username === vm.username || listOfMessages[i].username === listOfClientsOnline[j].name) {
+                    if (listOfMessages[i].id === vm.connectedClient.id || listOfMessages[i].id === listOfClientsOnline[j].id) {
                         listOfMessages[i].online = true;
+                        continue loop1;
                     }
-                    else{
+                    else {
                         listOfMessages[i].online = false;
                     }
                 } // end for j
+                //listOfMessages[i].online = true;
             } // end for i
-
             return listOfMessages;
         } // end updateClientsMessagesOnline
+
+        // Generate random Id using time
+        function randomId() {
+            return 'id' + new Date().valueOf();
+        } // end randomId
 
     } // end function ChatController
 
