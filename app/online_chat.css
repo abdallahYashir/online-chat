@@ -104,3 +104,38 @@ body {
     50% { background-color: #C3C5C7 }
     100% { background-color: #5E5F5F }
 }
+
+.sidebar-text .online-clients {
+    animation-timing-function: cubic-bezier(1, -0.06, 0.58, 1);
+    -webkit-animation: fadein 2s;
+    -o-animation: fadein 2s;
+    animation: fadein 2s;
+}
+
+/* Change chat animation with one dropping down */
+#chat-content .chat-messages {
+    animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    -webkit-animation: fadeInDown 1s;
+    -o-animation: fadeInDown 1s;
+    animation: fadeInDown 1s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+         opacity: 0;
+         transform: translateY(-20px);
+     }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

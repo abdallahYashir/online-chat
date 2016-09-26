@@ -24,7 +24,7 @@
         });
 
         // Declare socket io
-        var socket = io.connect('http://192.168.1.110:3000');
+        var socket = io.connect('http://192.168.1.112:3000');
 
         // Chat name
         vm.username = '';
