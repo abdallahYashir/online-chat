@@ -107,12 +107,11 @@ body {
 
 .sidebar-text .online-clients {
     animation-timing-function: cubic-bezier(1, -0.06, 0.58, 1);
-    -webkit-animation: fadein 2s;
-    -o-animation: fadein 2s;
-    animation: fadein 2s;
+    -webkit-animation: slideInLeft 1s;
+    -o-animation: slideInLeft 1s;
+    animation: slideInLeft 1s;
 }
 
-/* Change chat animation with one dropping down */
 #chat-content .chat-messages {
     animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
     -webkit-animation: fadeInDown 1s;
@@ -120,22 +119,6 @@ body {
     animation: fadeInDown 1s;
 }
 
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+/* TODO: Add animation for typing 1) ng-repeat 2) coming in and going out using ngAnimate */
+/* TODO: Investigate use of ngAnimate for highlighting effect when client has sent a message */
 
-@keyframes fadeInDown {
-    0% {
-         opacity: 0;
-         transform: translateY(-20px);
-     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
