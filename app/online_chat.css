@@ -122,3 +122,26 @@ body {
 /* TODO: Add animation for typing 1) ng-repeat 2) coming in and going out using ngAnimate */
 /* TODO: Investigate use of ngAnimate for highlighting effect when client has sent a message */
 
+#typing-wrapper.typing-animation.ng-enter {
+    animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    -webkit-animation: fadeInLeft 1s;
+    -moz-animation: fadeInLeft 1s;
+    -ms-animation: fadeInLeft 1s;
+    animation: fadeInLeft 1s;
+}
+
+#typing-wrapper.typing-animation.ng-leave {
+    animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    -webkit-animation: fadeOut 1s;
+    -moz-animation: fadeOut 1s;
+    -ms-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+}
+
+#typing-wrapper .clients-typing {
+    animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    -webkit-animation: fadeInDownBig 1s;
+    -moz-animation: fadeInDownBig 1s;
+    -ms-animation: fadeInDownBig 1s;
+    animation: fadeInDownBig 1s;
+}

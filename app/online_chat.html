@@ -72,9 +72,9 @@
                 </md-list>
                 <md-divider></md-divider>
 
-                <md-content id="typing-wrapper" md-scroll-y scroll-glue ng-if="vm.clientsTyping.length > 0">
+                <md-content id="typing-wrapper" class="typing-animation" md-scroll-y scroll-glue ng-if="vm.clientsTyping.length > 0">
                     <md-list flex>
-                      <md-list-item class="md-3-line" ng-repeat="client in vm.clientsTyping track by $index" ng-click="null">
+                      <md-list-item class="md-3-line clients-typing" ng-repeat="client in vm.clientsTyping track by $index" ng-click="null">
                           <img ng-src="assets/images/05.jpg" class="md-avatar" alt="" style="border: 3px solid #3E6677; padding: 0;">
                         <div class="is-online"></div>
                         <div class="md-list-item-text" layout="column">
