@@ -50,6 +50,7 @@
         vm.hasUserName = false;
         vm.placeholder = chatName;
 
+        // List of clients currently typing
         vm.clientsTyping = [];
 
         // Connected local Client Object - socketId, username, image, icon
@@ -226,7 +227,7 @@
             });
 
             // Add value if clients list is empty
-            if (clients.length === 0 || contains) {
+            if (clients.length === 0 || !contains) {
                 clients.push(client);
             }
 
@@ -266,9 +267,6 @@
             }
         });
 
-        // TODO : Update list of messages online/offline client
-        // TODO : Update profile picture to the one randomly assigned for user - use vm.connectedClient
-        // TODO : check performance of function below
 
         // Update online status of clients in list of messages
         function updateClientsMessagesOnline(listOfClientsOnline, listOfMessages) {
