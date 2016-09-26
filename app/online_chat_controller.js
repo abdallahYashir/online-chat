@@ -318,6 +318,9 @@
             return color;
         }; // end assignColor
 
+        // TODO : add delay animation background effect for new messages
+        // TODO : add show who is online for mobile screens
+
     } // end function ChatController
 
 })();
