@@ -148,6 +148,7 @@
         // When received message
         socket.on('chat message', function (msg) {
             vm.chats.push(msg);
+            updateChatMessageFx(2000);
             $scope.$apply('vm.chats');
         });
 
@@ -329,14 +330,14 @@
          Use css gradient animator, then reduce opacity to none.
          */
 
-        _.defer(function () {
+        // Update chat message effect
+        function updateChatMessageFx(timer) {
             vm.updateChatMessage = true;
-
             _.delay(function () {
                 vm.updateChatMessage = false;
                 $scope.$apply('vm.updateChatMessage');
-            }, 2000);
-        });
+            }, timer);
+        }
 
     } // end function ChatController
 
