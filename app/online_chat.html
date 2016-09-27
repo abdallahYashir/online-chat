@@ -18,7 +18,7 @@
 
 <body ng-app="chatApp" layout="column" ng-controller="ChatController as vm" ng-cloak>
     <div flex layout="row">
-        <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp">
+        <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-4dp" md-component-id="left">
             <div class="sidebar" flex layout="column">
                 <div class="profile-background md-whiteframe-2dp">
                     <div id="profile-content" flex layout="column" layout-padding layout-wrap layout-align="end">
@@ -48,7 +48,7 @@
         <md-content flex id="chat-section">
             <md-toolbar layout="row">
                 <div class="md-toolbar-tools">
-                    <md-button class="md-icon-button" aria-label="Settings" ng-disabled="false">
+                    <md-button class="md-icon-button" aria-label="Settings" ng-disabled="false" ng-click="vm.toggleSideNav()">
                         <md-icon md-svg-icon="assets/svg/menu_white.svg"></md-icon>
                     </md-button>
                     <span>A Random Room</span>

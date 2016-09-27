@@ -2,9 +2,9 @@
 
     angular
         .module('chatApp')
-        .controller('ChatController', ['$mdBottomSheet', '$scope', ChatController]);
+        .controller('ChatController', ['$mdBottomSheet', '$scope', '$mdSidenav', ChatController]);
 
-    function ChatController($mdBottomSheet, $scope) {
+    function ChatController($mdBottomSheet, $scope, $mdSidenav) {
 
         var vm = this;
 
@@ -337,6 +337,11 @@
                 vm.updateChatMessage = false;
                 $scope.$apply('vm.updateChatMessage');
             }, timer);
+        }
+
+        // Toggle side nav
+        vm.toggleSideNav = function () {
+            $mdSidenav('left').toggle();
         }
 
     } // end function ChatController
