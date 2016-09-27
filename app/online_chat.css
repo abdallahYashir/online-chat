@@ -146,6 +146,7 @@ body {
     animation: fadeInDownBig 1s;
 }
 
+/* TODO: remove ink if not used */
 /*.ink styles - the elements which will create the ripple effect. The size and position of these elements will be set by the JS code. Initially these elements will be scaled down to 0% and later animated to large fading circles on user click.*/
 .ink {
     display: block; position: absolute;
