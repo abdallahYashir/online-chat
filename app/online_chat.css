@@ -145,3 +145,55 @@ body {
     -ms-animation: fadeInDownBig 1s;
     animation: fadeInDownBig 1s;
 }
+
+/*.ink styles - the elements which will create the ripple effect. The size and position of these elements will be set by the JS code. Initially these elements will be scaled down to 0% and later animated to large fading circles on user click.*/
+.ink {
+    display: block; position: absolute;
+    background: hsl(180, 40%, 80%);
+    border-radius: 100%;
+    transform: scale(0);
+}
+
+/*animation effect*/
+.ink.animate {
+    animation: ripple 0.65s linear;
+}
+
+@keyframes ripple {
+    /*scale the element to 250% to safely cover the entire link and fade it out*/
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+.animate-background {
+    background: linear-gradient(192deg, #3f51b5, #5765b6);
+    background-size: 400% 400%;
+
+    -webkit-animation: animating-background 16s ease infinite;
+    -moz-animation: animating-background 16s ease infinite;
+    -o-animation: animating-background 16s ease infinite;
+    animation: animating-background 16s ease infinite;
+}
+
+@-webkit-keyframes animating-background {
+    0%{background-position:60% 0%}
+    50%{background-position:41% 100%}
+    100%{background-position:60% 0%}
+}
+@-moz-keyframes animating-background {
+    0%{background-position:60% 0%}
+    50%{background-position:41% 100%}
+    100%{background-position:60% 0%}
+}
+@-o-keyframes animating-background {
+    0%{background-position:60% 0%}
+    50%{background-position:41% 100%}
+    100%{background-position:60% 0%}
+}
+@keyframes animating-background {
+    0%{background-position:60% 0%}
+    50%{background-position:41% 100%}
+    100%{background-position:60% 0%}
+}

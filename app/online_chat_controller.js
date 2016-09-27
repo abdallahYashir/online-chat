@@ -24,7 +24,7 @@
         });
 
         // Declare socket io
-        var socket = io.connect('http://192.168.1.112:3000');
+        var socket = io.connect('http://192.168.1.118:3000');
 
         // Chat name
         vm.username = '';
@@ -57,6 +57,9 @@
         vm.connectedClient = {};
         // List of Messages history
         vm.listOfMessages = [];
+
+        // Variable for add new chat background effect
+        vm.updateChatMessage = false;
 
         // Store username in local storage
         if (localStorage.getItem('chat.username')) {
@@ -152,9 +155,9 @@
         window.onbeforeunload = function () {
             socket.emit('disconnect', {username: vm.username});
         };
-        
+
         // Detect user typing on and shows
-        // show typing no longer 
+        // show typing no longer
         function timeoutFunction() {
             typing = false;
             socket.emit('typingStop', {socketId: socket.id, username: vm.username});
@@ -320,6 +323,20 @@
 
         // TODO : add delay animation background effect for new messages
         // TODO : add show who is online for mobile screens
+        /*
+         Use a variable for new_message.
+         Use div to get fader effect and assign to value of new_message
+         Use css gradient animator, then reduce opacity to none.
+         */
+
+        _.defer(function () {
+            vm.updateChatMessage = true;
+
+            _.delay(function () {
+                vm.updateChatMessage = false;
+                $scope.$apply('vm.updateChatMessage');
+            }, 2000);
+        });
 
     } // end function ChatController
 

@@ -60,7 +60,7 @@
             <md-content id="chat-content" md-scroll-y class="md-padding" scroll-glue>
                 <md-list flex>
                     <!-- <md-subheader class="md-no-sticky">Subheader</md-subheader> -->
-                    <md-list-item class="md-3-line chat-messages" ng-repeat="chat in vm.chats track by $index" ng-click="null">
+                    <md-list-item class="md-3-line chat-messages" ng-repeat="chat in vm.chats track by $index" ng-click="null" ng-class="{'animate-background': $last && vm.updateChatMessage}">
                         <img ng-src="{{ chat.image }}" class="md-avatar" alt="" style="border: 3px solid {{ chat.color  }}; padding: 0;">
                         <div class="is-online" ng-if="chat.online"></div>
                         <div class="md-list-item-text" layout="column">
@@ -109,7 +109,7 @@
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
     <script src="../node_modules/lodash/lodash.min.js"></script>
-    <script src="http://192.168.1.112:3000/socket.io/socket.io.js"></script>
+    <script src="http://192.168.1.118:3000/socket.io/socket.io.js"></script>
     <script src="online_chat_app.js"></script>
     <script src="online_chat_controller.js"></script>
 </body>
