@@ -1,0 +1,24 @@
+body {
+  font-family: 'Raleway Regular';
+}
+#container {
+  background-color: #616161;
+}
+#container .header {
+  color: #212121;
+}
+#container .content {
+  min-height: 90%;
+}
+#container .content .firstLanguage {
+  min-height: 20%;
+  min-width: 100%;
+}
+#container .content .mainLanguage {
+  font-size: 9vh;
+  color: #bdbdbd;
+}
+#container .content .secondLanguage {
+  min-height: 20%;
+  min-width: 100%;
+}

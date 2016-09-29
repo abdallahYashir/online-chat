@@ -1,0 +1,50 @@
+body {
+  font-family: 'Rubik Regular';
+}
+#container {
+  background-color: #009688;
+}
+#container .outer {
+  width: 300px;
+  height: 100px;
+}
+#container .outer .wrapper .inner {
+  width: 100px;
+  height: 100px;
+}
+#container .outer .wrapper .inner .inner0 {
+  border-right: 7px solid #00796b;
+  border-bottom: 7px solid #00796b;
+}
+#container .outer .wrapper .inner .inner1 {
+  border-bottom: 7px solid #00796b;
+}
+#container .outer .wrapper .inner .inner2 {
+  border-left: 7px solid #00796b;
+  border-bottom: 7px solid #00796b;
+}
+#container .outer .wrapper .inner .inner3 {
+  border-right: 7px solid #00796b;
+  border-bottom: 7px solid #00796b;
+}
+#container .outer .wrapper .inner .inner4 {
+  border-bottom: 7px solid #00796b;
+}
+#container .outer .wrapper .inner .inner5 {
+  border-left: 7px solid #00796b;
+  border-bottom: 7px solid #00796b;
+}
+#container .outer .wrapper .inner .inner6 {
+  border-right: 7px solid #00796b;
+}
+#container .outer .wrapper .inner .inner8 {
+  border-left: 7px solid #00796b;
+}
+#container .x-form {
+  color: #fff;
+  font-size: 5vh;
+}
+#container .o-form {
+  color: #fff;
+  font-size: 5vh;
+}

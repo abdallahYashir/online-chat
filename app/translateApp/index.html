@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Translate Chat</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../node_modules/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="../../node_modules/animate.css/animate.min.css"/>
+    <link rel="stylesheet" href="../assets/app.css" />
+    <link rel="stylesheet" href="../font_faces.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body ng-app="translateApp" layout="column" ng-controller="translateController as vm" ng-cloak>
+    
+    <div id="container" flex layout="column" layout-padding layout-wrap>
+        <div class="header" flex layout="row" layout-align="space-between">
+            <div>words</div>
+            <div>date</div>
+        </div>
+        <div class="content" flex="1" layout="column" layout-align="center center">
+            <div class="firstLanguage" flex layout="row" layout-align="center center">First</div>
+            <div class="mainLanguage" flex layout="row" layout-align="center center">Main</div>
+            <div class="secondLanguage" flex layout="row" layout-align="center center">Second</div>
+        </div>
+        <div class="footer" flex layout="row" layout-align="start">
+            <div>Press Space or use Arrows</div>
+        </div>
+    </div>
+
+    <script src="../../node_modules/angular/angular.js"></script>
+    <script src="../../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../../node_modules/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="../../node_modules/angular-material/angular-material.js"></script>
+    <script src="../../node_modules/lodash/lodash.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+</body>
+
+</html>
