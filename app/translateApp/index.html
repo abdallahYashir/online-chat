@@ -17,10 +17,10 @@
 
 <body ng-app="translateApp" layout="column" ng-controller="translateController as vm" ng-cloak>
     
-    <div id="container" flex layout="column" layout-padding layout-wrap>
+    <div id="container" flex layout="column" layout-padding layout-wrap ng-click="vm.incrementSelection()">
         <div class="header" flex layout="row" layout-align="space-between">
-            <div>words</div>
-            <div>date</div>
+            <div>{{ vm.languages.length }} words</div>
+            <div>{{ vm.date | date }}</div>
         </div>
         <div class="content" flex="1" layout="column" layout-align="center center">
             <div class="firstLanguage" flex layout="row" layout-align="center center">{{ vm.firstLanguage }}</div>

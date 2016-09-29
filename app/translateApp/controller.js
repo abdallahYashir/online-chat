@@ -10,9 +10,10 @@
     vm.firstLanguage = 'test';
     vm.mainLanguage = '';
     vm.secondLanguage = '';
+    vm.date = _.now();
     $http.get('data.json').then(function(data) {
       vm.languages = data['data'];
-      assignSelection(vm.languages, 0);
+      assignSelection(vm.languages, vm.selection);
     });
     assignSelection = function(languages, selection) {
       if (!_.isEmpty(languages)) {
@@ -21,6 +22,18 @@
         vm.secondLanguage = languages[selection]['German'];
       }
     };
+    vm.incrementSelection = function() {
+      if (vm.selection >= vm.languages.length - 1) {
+        vm.selection = 0;
+      } else {
+        vm.selection++;
+      }
+    };
+    $scope.$watch('vm.selection', function(oldValue, newValue) {
+      if (oldValue !== newValue) {
+        return assignSelection(vm.languages, newValue);
+      }
+    });
   };
 
   angular.module('translateApp').controller('translateController', ['$scope', '$http', translateController]);

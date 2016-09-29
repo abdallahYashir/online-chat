@@ -6,11 +6,19 @@ primary-text = #212121
 secondary-text = #757575
 divider-color = #BDBDBD
 
+// mixins
+user-select()
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
 body
     font-family 'Raleway Regular'
 
 #container
     background-color dark-primary-color
+    user-select()
     .header
         color primary-color
     .content
