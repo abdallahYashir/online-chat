@@ -1,4 +1,4 @@
-# Controller top - no function hoisting
+### Controller top - no function hoisting ###
 translateController = ($scope, $http)->
     vm = @
     vm.languages = null
@@ -10,7 +10,7 @@ translateController = ($scope, $http)->
 
     vm.date = _.now()
 
-    # Get data from json file
+    ### Get data from json file ###
     $http
     .get('data.json')
     .then (data)->
@@ -18,7 +18,7 @@ translateController = ($scope, $http)->
         assignSelection(vm.languages, vm.selection)
         return
 
-    # Function to assign languages based on selection
+    ### Function to assign languages based on selection ###
     assignSelection = (languages, selection) ->
         if !_.isEmpty(languages)
             vm.mainLanguage = languages[selection]['English']
@@ -26,7 +26,7 @@ translateController = ($scope, $http)->
             vm.secondLanguage = languages[selection]['German']
         return
 
-    # Function to increment selection
+    ### Function to increment selection ###
     vm.incrementSelection = () ->
         # if selection is greater than the length of languages
         if vm.selection >= vm.languages.length - 1
@@ -35,10 +35,11 @@ translateController = ($scope, $http)->
             vm.selection++
         return
 
-    # Watch for changes in selection
+    ### Watch for changes in selection ###
     $scope.$watch('vm.selection', (oldValue, newValue) ->
         if oldValue isnt newValue
             assignSelection(vm.languages, newValue)
+            return
     )
 
     return
