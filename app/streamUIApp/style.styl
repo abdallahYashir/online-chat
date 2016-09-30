@@ -8,6 +8,12 @@ echo-blue = #ADB2CF
 pale-blue = #5F77CA
 navy-blue = #475FB1
 
+// mixins
+placeholder()
+    color echo-blue
+    font-size 0.7em
+    text-align center
+
 body
     font-family 'Raleway Regular'
 
@@ -22,18 +28,14 @@ body
         background-color navy-blue
         border-width 0
 
-::-webkit-input-placeholder {
-    color: red;
-}
+::-webkit-input-placeholder
+    placeholder()
 
-:-moz-placeholder { /* Firefox 18- */
-    color: red;
-}
+:-moz-placeholder
+    placeholder()
 
-::-moz-placeholder {  /* Firefox 19+ */
-    color: red;
-}
+::-moz-placeholder
+    placeholder()
 
-:-ms-input-placeholder {
-    color: red;
-}
+:-ms-input-placeholder
+    placeholder()
