@@ -1,0 +1,2 @@
+angular
+    .module('streamUIApp', ['ngMaterial']);
