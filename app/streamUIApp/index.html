@@ -17,7 +17,8 @@
 
 <body ng-app="streamUIApp" ng-controller="streamUIController as vm" ng-cloak>
 
-<div id="container" flex layout="row">
+<div id="container" flex layout="column">
+
     <md-toolbar class="toolbar" flex layout="row">
         <div class="logo" flex="5" layout="row" layout-align="center center">f</div>
         <div flex layout="row" layout-align="center center">
@@ -29,6 +30,19 @@
             </md-button>
         </div>
     </md-toolbar>
+
+    <md-content id="page" md-scroll-y scroll-glue>
+        <div id="sidebar" flex="5" layout="column" layout-align="center center">
+            <md-list flex>
+                <md-list-item class="md-3-line" ng-repeat="icon in vm.icons track by $index">
+                    <img ng-src="{{ icon }}" alt="Icons" class="menu-icons"/>
+                </md-list-item>
+            </md-list>
+        </div>
+        <div flex></div>
+        <div flex="25"></div>
+    </md-content>
+
 </div>
 
 <script src="../../node_modules/angular/angular.js"></script>
