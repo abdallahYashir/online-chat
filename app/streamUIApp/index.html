@@ -31,7 +31,7 @@
         </div>
     </md-toolbar>
 
-    <md-content id="page" md-scroll-y scroll-glue>
+    <md-content id="page" md-scroll-y scroll-glue layout="row">
         <div id="sidebar" flex="5" layout="column" layout-align="center center">
             <md-list flex>
                 <md-list-item class="md-3-line" ng-repeat="icon in vm.icons track by $index">
@@ -39,7 +39,18 @@
                 </md-list-item>
             </md-list>
         </div>
-        <div flex></div>
+        <div id="content" flex>
+            <md-list>
+                <md-subheader class="md-no-sticky header">
+                    <div flex="30" layout="row" layout-align="space-between center">
+                        <div class="featured">Featured</div>
+                        <div class="popular">Popular</div>
+                        <div class="following">Following</div>
+                    </div>
+                    <div></div>
+                </md-subheader>
+            </md-list>
+        </div>
         <div flex="25"></div>
     </md-content>
 
