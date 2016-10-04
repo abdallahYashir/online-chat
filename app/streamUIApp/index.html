@@ -52,13 +52,15 @@
                 <div class="line" flex>
                     <div class="pointer" flex="10">&nbsp;</div>
                 </div>
-                <div class="md-2-line item-list" ng-repeat="stream in vm.streams track by $index">
-                    <div class="card" flex layout="column" layout-align="center center">
-                        <div class="stream-image" flex>
+                <div class="md-3-line item-list" ng-repeat="stream in vm.streams track by $index">
+                    <div class="card" flex layout="column" layout-align="stretch center">
+                        <div class="stream-image" flex layout="row">
                             <img ng-src="{{ stream.picture }}" alt="Stream Picture"/>
                         </div>
-                        <div class="stream-info" flex layout="row">
-                            <div class="main-info"></div>
+                        <div class="stream-info" flex layout="row" layout-padding layout-margin>
+                            <div class="main-info" layout-fill>
+                                <div class="title">{{ stream.title }}</div>
+                            </div>
                             <div class="tags"></div>
                         </div>
                         <div class="user-info"></div>
@@ -66,7 +68,7 @@
                 </div>
             </md-list>
         </div>
-        <div flex="25"></div>
+        <div flex="30"></div>
     </md-content>
 
 </div>
