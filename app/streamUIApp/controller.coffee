@@ -6,8 +6,7 @@ streamUIController = ($scope, $http) ->
     vm.streams = []
 
     $http.get('streams.json').then((streams) ->
-        vm.streams = streams
-        console.log JSON.stringify(vm.streams)
+        vm.streams = streams.data
         return
     )
 

@@ -8,6 +8,7 @@ echo-blue = #ADB2CF
 pale-blue = #5F77CA
 navy-blue = #475FB1
 swifth-red = #FF3D63
+light-blue = #F5F6FB
 
 // mixins
 placeholder()
@@ -35,6 +36,9 @@ body
                 max-width 25px
                 min-height 25px
     #content
+        background-color light-blue
+        .header
+            background-color light-blue
         .header-labels *
             text-transform capitalize
         .featured
@@ -46,6 +50,12 @@ body
             .pointer
                 //border-bottom 1px solid swifth-red
                 background-color swifth-red
+        .item-list
+            padding-top 10px
+        .card
+            .stream-image
+                img
+                    null
 
 
 ::-webkit-input-placeholder
