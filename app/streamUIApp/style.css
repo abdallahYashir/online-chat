@@ -1,0 +1,73 @@
+body {
+  font-family: 'Raleway Regular';
+}
+#container md-toolbar {
+  background-color: #546dc6 !important;
+}
+#container .logo {
+  background-color: #5f77ca;
+  font-weight: bold;
+}
+#container .input-text {
+  border-radius: 15px;
+  background-color: #475fb1;
+  border-width: 0;
+  text-align: center;
+}
+#container #page #sidebar .menu-icons {
+  max-width: 25px;
+  min-height: 25px;
+}
+#container #content {
+  background-color: #f5f6fb;
+}
+#container #content .header {
+  background-color: #f5f6fb;
+}
+#container #content .header-labels * {
+  text-transform: capitalize;
+}
+#container #content .featured {
+  font-weight: bold;
+}
+#container #content .line {
+  background-color: #b8bfd5;
+  height: 2px;
+}
+#container #content .line .pointer {
+  background-color: #ff3d63;
+}
+#container #content .separator {
+  padding-bottom: 40px;
+}
+#container #content .card {
+  margin-bottom: 5vh;
+}
+#container #content .card .stream-image img {
+  min-width: 99vh;
+  min-height: 80%;
+}
+#container #content .card .stream-info {
+  background-color: #fbfbfd;
+  width: 100%;
+}
+::-webkit-input-placeholder {
+  color: #adb2cf;
+  font-size: 0.7em;
+  text-align: center;
+}
+:-moz-placeholder {
+  color: #adb2cf;
+  font-size: 0.7em;
+  text-align: center;
+}
+::-moz-placeholder {
+  color: #adb2cf;
+  font-size: 0.7em;
+  text-align: center;
+}
+:-ms-input-placeholder {
+  color: #adb2cf;
+  font-size: 0.7em;
+  text-align: center;
+}

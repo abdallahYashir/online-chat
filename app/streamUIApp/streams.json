@@ -4,7 +4,7 @@
     "isActive": true,
     "picture": "../assets/images/01.jpeg",
     "profile": "../assets/images/profile_picture01.jpg",
-    "title": "velit sit",
+    "title": "Ambient Mix Live Show",
     "tags": [
       "est",
       "ea",
@@ -30,7 +30,7 @@
       }
     ],
     "date": "Tue Feb 26 1974 08:44:12 GMT+0400 (Arabian Standard Time)",
-    "watching": 1
+    "watching": 100
   },
   {
     "_id": "57f2040265f95a70bf43f5f2",
