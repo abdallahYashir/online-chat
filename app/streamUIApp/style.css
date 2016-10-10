@@ -42,13 +42,13 @@ body {
 }
 #container #content .card {
   margin-bottom: 5vh;
+  background-color: #fbfbfd;
 }
 #container #content .card .stream-image img {
   max-width: 100%;
   max-height: 100%;
 }
 #container #content .card .stream-info {
-  background-color: #fbfbfd;
   width: 100%;
 }
 #container #content .card .stream-info .main-info .watching {
