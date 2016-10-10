@@ -60,6 +60,14 @@ body {
   font-size: 0.8em;
   color: #b8bfd5;
 }
+#container #content .card .stream-info .tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-around;
+  vertical-align: center;
+  justify-content: space-around;
+}
 #container #content .card .stream-info .tags span {
   font-size: 0.7em;
   text-transform: uppercase;
@@ -71,6 +79,7 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
   font-weight: bold;
+  margin: auto;
 }
 ::-webkit-input-placeholder {
   color: #adb2cf;
