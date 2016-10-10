@@ -62,7 +62,7 @@
                                 <div class="main-info" layout-fill>
                                     <h3 class="title">{{ stream.title }}</h3>
                                     <span class="watching">Watching: {{ stream.watching }}</span>
-                                    <span class="started">Started: {{ new Date(stream.date)  | date:'MM/dd/yyyy @ h:mma' }}</span>
+                                    <span class="started">Started: {{ vm.toDate(stream.date)  | date:'shortTime' }}</span>
                                     <span></span>
                                 </div>
                                 <div class="tags"></div>

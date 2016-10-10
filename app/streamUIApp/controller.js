@@ -13,6 +13,11 @@
     $http.get('streams.json').then(function(streams) {
       vm.streams = streams.data;
     });
+
+    /* Function to convert string to date */
+    vm.toDate = function(string) {
+      return new Date(string);
+    };
   };
 
   angular.module('streamUIApp').controller('streamUIController', ['$scope', '$http', streamUIController]);
