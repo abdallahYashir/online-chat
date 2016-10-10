@@ -16,6 +16,16 @@ placeholder()
     font-size 0.7em
     text-align center
 
+border-radius-top(value)
+    border-radius value value 0 0
+
+border-radius-bottom(value)
+    border-radius 0 0 value value
+
+// variables
+top-border-radius = 5px
+bottom-border-radius = 5px
+
 body
     font-family 'Raleway Regular'
 
@@ -57,10 +67,12 @@ body
         .card
             margin-bottom 5vh
             background-color ghost-white
+            border-radius-bottom(bottom-border-radius)
             .stream-image
                 img
                     max-width 100%
                     max-height 100%
+                    border-radius-top(top-border-radius)
             .stream-info
                 width 100%
                 .main-info
