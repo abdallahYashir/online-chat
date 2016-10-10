@@ -51,6 +51,15 @@ body {
   background-color: #fbfbfd;
   width: 100%;
 }
+#container #content .card .stream-info .main-info .watching {
+  font-size: 0.8em;
+  color: #ff3d63;
+  margin-right: 10px;
+}
+#container #content .card .stream-info .main-info .started {
+  font-size: 0.8em;
+  color: #b8bfd5;
+}
 ::-webkit-input-placeholder {
   color: #adb2cf;
   font-size: 0.7em;

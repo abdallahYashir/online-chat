@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../../node_modules/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="../../node_modules/animate.css/animate.min.css"/>
+    <link rel="stylesheet" href="../../node_modules/animate.css/animate.min.css" />
     <link rel="stylesheet" href="../assets/app.css" />
     <link rel="stylesheet" href="../font_faces.css">
     <link rel="stylesheet" href="style.css" />
@@ -17,73 +17,73 @@
 
 <body ng-app="streamUIApp" ng-controller="streamUIController as vm" ng-cloak>
 
-<div id="container" flex layout="column">
+    <div id="container" flex layout="column">
 
-    <md-toolbar class="toolbar" flex layout="row">
-        <div class="logo" flex="5" layout="row" layout-align="center center">f</div>
-        <div flex layout="row" layout-align="center center">
-            <input type="text" class="input-text" placeholder="Search" tabindex="-1"/>
-        </div>
-        <div flex="5" layout="row" layout-align="center center">
-            <md-button class="md-icon-button" aria-label="Menu">
-                <md-icon md-svg-icon="../assets/svg/menu_white.svg"></md-icon>
-            </md-button>
-        </div>
-    </md-toolbar>
+        <md-toolbar class="toolbar" flex layout="row">
+            <div class="logo" flex="5" layout="row" layout-align="center center">f</div>
+            <div flex layout="row" layout-align="center center">
+                <input type="text" class="input-text" placeholder="Search" tabindex="-1" />
+            </div>
+            <div flex="5" layout="row" layout-align="center center">
+                <md-button class="md-icon-button" aria-label="Menu">
+                    <md-icon md-svg-icon="../assets/svg/menu_white.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
 
-    <md-content id="page" md-scroll-y scroll-glue layout="row">
-        <div id="sidebar" flex="5" layout="column" layout-align="center center">
-            <md-list flex>
-                <md-list-item class="md-3-line" ng-repeat="icon in vm.icons track by $index">
-                    <img ng-src="{{ icon }}" alt="Icons" class="menu-icons"/>
-                </md-list-item>
-            </md-list>
-        </div>
-        <div id="content" flex>
-            <md-list>
-                <md-subheader class="md-no-sticky header">
-                    <div class="header-labels" flex="30" layout="row" layout-align="space-between center">
-                        <md-button tabindex="-1" class="featured" md-no-ink>Featured</md-button>
-                        <md-button tabindex="-1" class="popular" md-no-ink>Popular</md-button>
-                        <md-button tabindex="-1" class="following" md-no-ink>Following</md-button>
-                    </div>
-                    <div></div>
-                </md-subheader>
-                <div class="line" flex>
-                    <div class="pointer" flex="10">&nbsp;</div>
-                </div>
-                <div class="separator"></div>
-                <div class="md-3-line item-list" ng-repeat="stream in vm.streams track by $index">
-                    <div class="card" flex layout="column" layout-align="stretch center">
-                        <div class="stream-image" flex>
-                            <img ng-src="{{ stream.picture }}" alt="Stream Picture"/>
+        <md-content id="page" md-scroll-y scroll-glue layout="row">
+            <div id="sidebar" flex="5" layout="column" layout-align="center center">
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="icon in vm.icons track by $index">
+                        <img ng-src="{{ icon }}" alt="Icons" class="menu-icons" />
+                    </md-list-item>
+                </md-list>
+            </div>
+            <div id="content" flex>
+                <md-list>
+                    <md-subheader class="md-no-sticky header">
+                        <div class="header-labels" flex="30" layout="row" layout-align="space-between center">
+                            <md-button tabindex="-1" class="featured" md-no-ink>Featured</md-button>
+                            <md-button tabindex="-1" class="popular" md-no-ink>Popular</md-button>
+                            <md-button tabindex="-1" class="following" md-no-ink>Following</md-button>
                         </div>
-                        <div class="stream-info" flex layout="row" layout-padding layout-margin layout-fill>
-                            <div class="main-info" layout-fill>
-                                <h3 class="title">{{ stream.title }}</h3>
-                                <span>Watching: {{ stream.watching }}</span>
-                                <span>Started: {{ stream.date | date:'medium' }}</span>
-                                <span></span>
+                        <div></div>
+                    </md-subheader>
+                    <div class="line" flex>
+                        <div class="pointer" flex="10">&nbsp;</div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="md-3-line item-list" ng-repeat="stream in vm.streams track by $index">
+                        <div class="card" flex layout="column" layout-align="stretch center">
+                            <div class="stream-image" flex>
+                                <img ng-src="{{ stream.picture }}" alt="Stream Picture" />
                             </div>
-                            <div class="tags"></div>
+                            <div class="stream-info" flex layout="row" layout-padding layout-margin layout-fill>
+                                <div class="main-info" layout-fill>
+                                    <h3 class="title">{{ stream.title }}</h3>
+                                    <span class="watching">Watching: {{ stream.watching }}</span>
+                                    <span class="started">Started: {{ new Date(stream.date)  | date:'MM/dd/yyyy @ h:mma' }}</span>
+                                    <span></span>
+                                </div>
+                                <div class="tags"></div>
+                            </div>
+                            <div class="user-info"></div>
                         </div>
-                        <div class="user-info"></div>
                     </div>
-                </div>
-            </md-list>
-        </div>
-        <div flex="30"></div>
-    </md-content>
+                </md-list>
+            </div>
+            <div flex="30"></div>
+        </md-content>
 
-</div>
+    </div>
 
-<script src="../../node_modules/angular/angular.js"></script>
-<script src="../../node_modules/angular-animate/angular-animate.js"></script>
-<script src="../../node_modules/angular-aria/angular-aria.js"></script>
-<script type="text/javascript" src="../../node_modules/angular-material/angular-material.js"></script>
-<script src="../../node_modules/lodash/lodash.min.js"></script>
-<script src="app.js"></script>
-<script src="controller.js"></script>
+    <script src="../../node_modules/angular/angular.js"></script>
+    <script src="../../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../../node_modules/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="../../node_modules/angular-material/angular-material.js"></script>
+    <script src="../../node_modules/lodash/lodash.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
 </body>
 
 </html>
