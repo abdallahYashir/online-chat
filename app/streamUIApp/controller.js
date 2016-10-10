@@ -18,5 +18,3 @@
   angular.module('streamUIApp').controller('streamUIController', ['$scope', '$http', streamUIController]);
 
 }).call(this);
-
-//# sourceMappingURL=controller.js.map

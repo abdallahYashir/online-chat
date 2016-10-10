@@ -1,0 +1,62 @@
+// Refer to palette
+// background
+dark-primary-color = #00796B
+default-primary-color = #009688
+light-primary-color = #B2DFDB
+
+// color
+text-primary-color = #FFFFFF
+accent-color = #FFC107
+primary-text-color = #212121
+secondary-text-color = #757575
+
+// border-color
+divider-color = #BDBDBD
+
+// Variables
+border-size = 7px
+
+body
+    font-family 'Rubik Regular'
+
+// mixins
+text-structure()
+    color text-primary-color
+    font-size 5vh
+
+#container
+    background-color default-primary-color
+    .outer
+        width 300px
+        height 100px
+        .wrapper
+            .inner
+                width 100px
+                height 100px
+                // border 1px solid divider-color
+                .inner0
+                    border-right border-size solid dark-primary-color
+                    border-bottom border-size solid dark-primary-color
+                .inner1
+                    border-bottom border-size solid dark-primary-color
+                .inner2
+                    border-left border-size solid dark-primary-color
+                    border-bottom border-size solid dark-primary-color
+                .inner3
+                    border-right border-size solid dark-primary-color
+                    border-bottom border-size solid dark-primary-color
+                .inner4
+                    border-bottom border-size solid dark-primary-color
+                .inner5
+                    border-left border-size solid dark-primary-color
+                    border-bottom border-size solid dark-primary-color
+                .inner6
+                    border-right border-size solid dark-primary-color
+                .inner7
+                    null
+                .inner8
+                    border-left border-size solid dark-primary-color
+    .x-form
+        text-structure()
+    .o-form
+        text-structure()
