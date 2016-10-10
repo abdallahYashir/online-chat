@@ -81,6 +81,11 @@ body {
   font-weight: bold;
   margin: auto;
 }
+#container #content .card .user-info .profile-picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+}
 ::-webkit-input-placeholder {
   color: #adb2cf;
   font-size: 0.7em;
