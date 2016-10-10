@@ -60,6 +60,15 @@ body {
   font-size: 0.8em;
   color: #b8bfd5;
 }
+#container #content .card .stream-info .tags span {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  border-radius: 15px;
+  border: 1px solid #b8bfd5;
+  color: #b8bfd5;
+  padding: 10px;
+  font-weight: bold;
+}
 ::-webkit-input-placeholder {
   color: #adb2cf;
   font-size: 0.7em;
