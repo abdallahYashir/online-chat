@@ -123,6 +123,11 @@ body {
   height: 30px;
   border-radius: 30px;
 }
+#container .profile .profile-details .picture {
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+}
 ::-webkit-input-placeholder {
   color: #adb2cf;
   font-size: 0.7em;

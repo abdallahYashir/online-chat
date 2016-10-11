@@ -87,7 +87,15 @@
                     </div>
                 </md-list>
             </div>
-            <div flex="30"></div>
+            <div flex="30" class="profile" layout="column">
+                <div class="profile-details" flex layout-padding layout-fill layout-wrap>
+                    <div class="picture-name">
+                        <img ng-src="{{ vm.streams[0].profile }}" alt="Profile Picture" class="picture">
+                    </div>
+                </div>
+                <md-divider md-inset></md-divider>
+                <div class="following-users"></div>
+            </div>
         </md-content>
 
     </div>
