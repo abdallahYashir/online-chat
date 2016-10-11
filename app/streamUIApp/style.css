@@ -61,6 +61,10 @@ body {
   left: 80%;
   border-radius: 20px;
   border: 1px solid #ff3d63;
+  color: #ff3d63;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 0.8em;
 }
 #container #content .card .stream-info {
   width: 100%;
