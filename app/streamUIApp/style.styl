@@ -69,10 +69,19 @@ body
             background-color ghost-white
             border-radius-bottom(bottom-border-radius)
             .stream-image
+                position relative
                 img
                     max-width 100%
                     max-height 100%
                     border-radius-top(top-border-radius)
+                .live
+                    position absolute
+                    width 10% // move to % or vh
+                    height 7%
+                    top 5%
+                    left 80%
+                    border-radius 20px
+                    border 1px solid swifth-red
             .stream-info
                 width 100%
                 .main-info
