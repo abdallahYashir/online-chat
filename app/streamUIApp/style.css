@@ -72,6 +72,9 @@ body {
   background-color: #ff3d63;
   border-radius: 50%;
 }
+#container #content .card .stream-image .live .text {
+  margin-left: 5%;
+}
 #container #content .card .stream-info {
   width: 100%;
 }
