@@ -64,7 +64,13 @@ body {
   color: #ff3d63;
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 0.8em;
+  font-size: 0.7em;
+}
+#container #content .card .stream-image .live .circle {
+  width: 10%;
+  height: 20%;
+  background-color: #ff3d63;
+  border-radius: 50%;
 }
 #container #content .card .stream-info {
   width: 100%;
