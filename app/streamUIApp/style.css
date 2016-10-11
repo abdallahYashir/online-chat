@@ -76,6 +76,15 @@ body {
 #container #content .card .stream-image .live .text {
   margin-left: 5%;
 }
+#container #content .card .stream-image .play {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+#container #content .card .stream-image .play .play-icon {
+  width: 20%;
+  height: 20%;
+}
 #container #content .card .stream-info {
   width: 100%;
 }
