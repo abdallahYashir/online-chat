@@ -137,6 +137,16 @@ body {
   font-size: 1.2em;
   font-weight: bolder;
 }
+#container .profile .profile-details .profile-stream-info .numbers {
+  font-size: 1.8em;
+  color: #546dc6;
+  margin-bottom: 7%;
+}
+#container .profile .profile-details .profile-stream-info .labels {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
 ::-webkit-input-placeholder {
   color: #adb2cf;
   font-size: 0.7em;
