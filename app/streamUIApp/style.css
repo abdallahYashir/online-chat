@@ -147,6 +147,14 @@ body {
   text-transform: uppercase;
   font-weight: 900;
 }
+#container .profile .profile-details .go-live #goLiveButton {
+  background-color: #ff3d63;
+  border-radius: 20px;
+  color: #fbfbfd;
+  font-size: 0.7em;
+  font-weight: bolder;
+  width: 50%;
+}
 ::-webkit-input-placeholder {
   color: #adb2cf;
   font-size: 0.7em;
