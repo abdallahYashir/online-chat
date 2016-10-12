@@ -123,10 +123,19 @@ body {
   height: 30px;
   border-radius: 30px;
 }
+#container .profile .profile-details {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-align: center;
+}
 #container .profile .profile-details .picture {
   border-radius: 50px;
   width: 90px;
   height: 90px;
+}
+#container .profile .profile-details .profile-name {
+  font-size: 1.2em;
+  font-weight: bolder;
 }
 ::-webkit-input-placeholder {
   color: #adb2cf;
